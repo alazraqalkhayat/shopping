@@ -28,7 +28,7 @@ public class MyFirebaseInstanceIDService extends FirebaseMessagingService {
         String body=message.getNotification().getBody();
 
 
-        final String channelID="FIREBASE_CHANEL_NOTIFICATION";
+        final String channelID="MY_NOTIFICATION_CHANNEL";
 
         NotificationChannel channel=new NotificationChannel(
                 channelID,
