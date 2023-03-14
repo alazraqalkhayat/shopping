@@ -79,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
 
+
             }
 
             @Override

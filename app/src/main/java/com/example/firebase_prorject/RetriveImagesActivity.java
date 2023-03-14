@@ -20,6 +20,7 @@ import java.util.List;
 public class RetriveImagesActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
+
     private Image_items_adapter adapter;
     private DatabaseReference databaseReference;
     private List<Image_items_model> image_items_modelList;
