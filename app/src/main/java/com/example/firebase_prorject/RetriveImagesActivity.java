@@ -22,14 +22,14 @@ public class RetriveImagesActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
 
     private Image_items_adapter adapter;
-    private DatabaseReference databaseReference;
     private List<Image_items_model> image_items_modelList;
+    private DatabaseReference databaseReference;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_retrive_images);
         recyclerView=findViewById(R.id.recycleView);
-        recyclerView.setHasFixedSize(true);
+//        recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         image_items_modelList=new ArrayList<>();
@@ -40,16 +40,12 @@ public class RetriveImagesActivity extends AppCompatActivity {
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+
                 for(DataSnapshot d : snapshot.getChildren()){
-
-                    Image_items_model model=d.getValue(Image_items_model.class);
-                    System.out.println("the model is "+model.name);
-
-                    image_items_modelList.add(model);
-
-                    adapter=new Image_items_adapter(getBaseContext(),image_items_modelList);
-                    recyclerView.setAdapter(adapter);
+                    image_items_modelList.add(d.getValue(Image_items_model.class));
                 }
+                adapter=new Image_items_adapter(getBaseContext(),image_items_modelList);
+                recyclerView.setAdapter(adapter);
             }
 
             @Override
